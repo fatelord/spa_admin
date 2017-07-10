@@ -62,41 +62,41 @@ if (!$logged) {
         <div class="row">
             <div class="col-md-12">
                 <label for="name">Salon/Spa Name:</label>
-                <input id="SPA_NAME" name="SPA_NAME" type="text" class="form-control"/>
+                <input id="SALON_NAME" name="SALON_NAME" type="text" class="form-control"/>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <label for="name">Telephone Number:</label>
-                <input id="SPA_TEL" name="SPA_TEL" type="text" class="form-control"/>
+                <input id="SALON_TEL" name="SALON_TEL" type="text" class="form-control"/>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <label for="name">Location</label>
-                <input id="SPA_LOCATION" name="SPA_LOCATION" type="text" class="form-control"/>
+                <input id="SALON_LOCATION" name="SALON_LOCATION" type="text" class="form-control"/>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <label for="name">Email</label>
-                <input id="SPA_EMAIL" name="SPA_EMAIL" type="text" class="form-control"/>
+                <input id="SALON_EMAIL" name="SALON_EMAIL" type="text" class="form-control"/>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <label for="name">Website</label>
-                <input id="SPA_WEBSITE" name="SPA_WEBSITE" type="text" class="form-control"/>
+                <input id="SALON_WEBSITE" name="SALON_WEBSITE" type="text" class="form-control"/>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6">
                 <label for="name">Map</label>
-                <input id="SPA_MAP_COORD" name="SPA_MAP_COORD" type="text" class="form-control"/>
+                <input id="SALON_MAP_COORD" name="SALON_MAP_COORD" type="text" class="form-control"/>
             </div>
             <div class="col-md-6">
                 <label for="name">Image</label>
-                <input id="SPA_IMAGE" name="SPA_IMAGE" type="text" class="form-control"/>
+                <input id="SALON_IMAGE" name="SALON_IMAGE" type="text" class="form-control"/>
             </div>
         </div>
         <div class="row" style="margin-top: 25px;">

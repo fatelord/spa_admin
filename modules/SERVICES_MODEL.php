@@ -18,7 +18,7 @@ class SERVICES_MODEL
 {
 	public $database;
 	public $spa_services_table = 'services';
-	public $spa_services_view = 'SPA_SERVICE';
+	public $spa_services_view = 'SALON_SERVICE';
 	public $date;
 
 	function __construct($debug = false)
@@ -56,16 +56,16 @@ class SERVICES_MODEL
 	}
 
 
-	public function FetchServiceList($spa_id)
+	public function FetchServiceList($salon_id)
 	{
 		$data = $this->database->select($this->spa_services_view, [
 			'SERVICE_ID',
-			'SPA_ID',
-			'SPA_NAME',
+			'SALON_ID',
+			'SALON_NAME',
 			'SERVICE_NAME',
 			'SERVICE_COST'
 		], [
-			'SPA_ID' => $spa_id
+			'SALON_ID' => $salon_id
 		], [
 			"ORDER" => ["SERVICE_ID" => "ASC"],
 		]);

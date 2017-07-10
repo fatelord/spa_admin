@@ -13,7 +13,7 @@ $(function () {
         pageSize: 20,
         pageButtonCount: 5,
         deleteConfirm: function(item) {
-            return "The SPA \"" + item.SPA_NAME + "\" will be removed. Are you sure?";
+            return "The SPA \"" + item.SALON_NAME + "\" will be removed. Are you sure?";
         },
         rowClick: function(args) {
             showDetailsDialog("Edit", args.item);
@@ -50,12 +50,12 @@ $(function () {
             }
         },
         fields: [
-            //{name: "SPA_ID", title: "ID", type: "number", width: 50, filtering: false},
-            {name: "SPA_NAME", title: "Spa Name", type: "text", width: 150},
-            {name: "SPA_TEL", title: "Telephone",filtering: false, type: "text", width: 150},
-            {name: "SPA_LOCATION", title: "Location", filtering: false, type: "text", width: 200},
-            {name: "SPA_WEBSITE", title: "Website", filtering: false, type: "text", width: 150},
-            //{name: "SPA_ID", type: "checkbox", title: "Is Married", sorting: false, filtering: false},
+            //{name: "SALON_ID", title: "ID", type: "number", width: 50, filtering: false},
+            {name: "SALON_NAME", title: "Spa Name", type: "text", width: 150},
+            {name: "SALON_TEL", title: "Telephone",filtering: false, type: "text", width: 150},
+            {name: "SALON_LOCATION", title: "Location", filtering: false, type: "text", width: 200},
+            {name: "SALON_WEBSITE", title: "Website", filtering: false, type: "text", width: 150},
+            //{name: "SALON_ID", type: "checkbox", title: "Is Married", sorting: false, filtering: false},
             //{type: "control"}
             {
                 type: "control",
@@ -104,10 +104,10 @@ $(function () {
 
     var showDetailsDialog = function(dialogType, client) {
         console.log(client);
-        $("#name").val(client.SPA_NAME);
-        $("#age").val(client.SPA_TEL);
-        $("#address").val(client.SPA_LOCATION);
-        $("#country").val(client.SPA_WEBSITE);
+        $("#name").val(client.SALON_NAME);
+        $("#age").val(client.SALON_TEL);
+        $("#address").val(client.SALON_LOCATION);
+        $("#country").val(client.SALON_WEBSITE);
         //$("#married").prop("checked", client.Married);
 
         formSubmitHandler = function() {

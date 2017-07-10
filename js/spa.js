@@ -38,21 +38,21 @@ $(function () {
         autoload: true,
         paging: true,
         deleteConfirm: function (item) {
-            return "The Entry for \"" + item.SPA_NAME + "\" will be removed. Are you sure?";
+            return "The Entry for \"" + item.SALON_NAME + "\" will be removed. Are you sure?";
         },
         rowClick: function (args) {
             showDetailsDialog("Edit", args.item);
         },
         controller: db,
         fields: [
-            {name: "SPA_ID", type: "text", visible: false},
-            {name: "SPA_NAME", title: "Name", type: "text"},
-            {name: "SPA_TEL", title: "Telephone", type: "text"},
-            {name: "SPA_EMAIL", title: "Email", type: "text"},
-            {name: "SPA_WEBSITE", title: "Website", type: "text"},
-            {name: "SPA_LOCATION", title: "Location", type: "text"},
-            {name: "SPA_IMAGE", title: "Image", type: "text"},
-            {name: "SPA_MAP_COORD", title: "Map", type: "text", visible: false},
+            {name: "SALON_ID", type: "text", visible: false},
+            {name: "SALON_NAME", title: "Name", type: "text"},
+            {name: "SALON_TEL", title: "Telephone", type: "text"},
+            {name: "SALON_EMAIL", title: "Email", type: "text"},
+            {name: "SALON_WEBSITE", title: "Website", type: "text"},
+            {name: "SALON_LOCATION", title: "Location", type: "text"},
+            {name: "SALON_IMAGE", title: "Image", type: "text"},
+            {name: "SALON_MAP_COORD", title: "Map", type: "text", visible: false},
             {
                 type: "control",
                 modeSwitchButton: false,
@@ -61,7 +61,7 @@ $(function () {
                 itemTemplate: function (value, item) {
                     var $result = jsGrid.fields.control.prototype.itemTemplate.apply(this, arguments);
 
-                    var $customButton = '<a class="btn btn-link" href="spa_services?spa_id='+item.SPA_ID+'">Services</a>';
+                    var $customButton = '<a class="btn btn-link" href="spa_services.php?id='+item.SALON_ID+'">Services</a>';
 
                     return $result.add($customButton);
                 }
@@ -98,16 +98,16 @@ $(function () {
 
     $("#detailsForm").validate({
         rules: {
-            SPA_NAME: "required",
-            SPA_LOCATION: "required",
-            SPA_TEL: "required",
+            SALON_NAME: "required",
+            SALON_LOCATION: "required",
+            SALON_TEL: "required",
             //age: {required: true, range: [18, 150]},
             //address: {required: true, minlength: 10},
         },
         messages: {
-            SPA_NAME: "Please enter a valid Spa/Salon name",
-            SPA_LOCATION: "Please indicate location",
-            SPA_TEL: "Please provide a telephone number",
+            SALON_NAME: "Please enter a valid Spa/Salon name",
+            SALON_LOCATION: "Please indicate location",
+            SALON_TEL: "Please provide a telephone number",
         },
         submitHandler: function () {
             formSubmitHandler();
@@ -117,13 +117,13 @@ $(function () {
     var formSubmitHandler = $.noop;
 
     var showDetailsDialog = function (dialogType, client) {
-        $("#SPA_NAME").val(client.SPA_NAME);
-        $("#SPA_EMAIL").val(client.SPA_EMAIL);
-        $("#SPA_LOCATION").val(client.SPA_LOCATION);
-        $("#SPA_TEL").val(client.SPA_TEL);
-        $("#SPA_WEBSITE").val(client.SPA_WEBSITE);
-        $("#SPA_IMAGE").val(client.SPA_IMAGE);
-        $("#SPA_MAP_COORD").val(client.SPA_MAP_COORD);
+        $("#SALON_NAME").val(client.SALON_NAME);
+        $("#SALON_EMAIL").val(client.SALON_EMAIL);
+        $("#SALON_LOCATION").val(client.SALON_LOCATION);
+        $("#SALON_TEL").val(client.SALON_TEL);
+        $("#SALON_WEBSITE").val(client.SALON_WEBSITE);
+        $("#SALON_IMAGE").val(client.SALON_IMAGE);
+        $("#SALON_MAP_COORD").val(client.SALON_MAP_COORD);
 
 
         formSubmitHandler = function () {
@@ -140,13 +140,13 @@ $(function () {
     var saveClient = function (client, isNew) {
 
         $.extend(client, {
-            SPA_NAME: $("#SPA_NAME").val(),
-            SPA_EMAIL: $("#SPA_EMAIL").val(),
-            SPA_LOCATION: $("#SPA_LOCATION").val(),
-            SPA_TEL: $("#SPA_TEL").val(),
-            SPA_WEBSITE: $("#SPA_WEBSITE").val(),
-            SPA_IMAGE: $("#SPA_IMAGE").val(),
-            SPA_MAP_COORD: $("#SPA_MAP_COORD").val()
+            SALON_NAME: $("#SALON_NAME").val(),
+            SALON_EMAIL: $("#SALON_EMAIL").val(),
+            SALON_LOCATION: $("#SALON_LOCATION").val(),
+            SALON_TEL: $("#SALON_TEL").val(),
+            SALON_WEBSITE: $("#SALON_WEBSITE").val(),
+            SALON_IMAGE: $("#SALON_IMAGE").val(),
+            SALON_MAP_COORD: $("#SALON_MAP_COORD").val()
         })
         ;
 

@@ -6,12 +6,12 @@ require_once 'SERVICES_MODEL.php';
 
 switch ($_SERVER["REQUEST_METHOD"]) {
 	case "GET":
-		$result = SERVICE_CLASS::GET_SERVICES_LIST($_GET["spa_id"]);
+		$result = SERVICE_CLASS::GET_SERVICES_LIST($_GET["salon_id"]);
 		break;
 
 	case "POST":
 		$result = SERVICE_CLASS::INSERT_SERVICE([
-			'SPA_ID' => intval($_POST['SPA_ID']),
+			'SALON_ID' => intval($_POST['SALON_ID']),
 			'SERVICE_NAME' => $_POST['SERVICE_NAME'],
 			'SERVICE_COST' => $_POST['SERVICE_COST'],
 		]);
@@ -22,7 +22,7 @@ switch ($_SERVER["REQUEST_METHOD"]) {
 		$pk = intval($_PUT['SERVICE_ID']);
 
 		$result = SERVICE_CLASS::UPDATE_SPA($pk, [
-			//'SPA_ID' => intval($_PUT['SPA_ID']),
+			//'SALON_ID' => intval($_PUT['SALON_ID']),
 			'SERVICE_NAME' => $_PUT['SERVICE_NAME'],
 			'SERVICE_COST' => $_PUT['SERVICE_COST'],
 		]);

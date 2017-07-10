@@ -14,11 +14,11 @@ require_once '../vendor/autoload.php';
 use Garden\Password\VanillaPassword;
 use Medoo\Medoo;
 
-class SPA_MODEL
+class SALON_MODEL
 {
 	public $database;
 	public $vanillaPassword;
-	public $spa_table = 'spa';
+	public $spa_table = 'salon';
 	public $users_table = 'user';
 	public $date;
 
@@ -44,7 +44,7 @@ class SPA_MODEL
 
 	public function UpdateSpa($pk, $spa_arr)
 	{
-		$this->database->update($this->spa_table, $spa_arr, ['SPA_ID' => $pk]);
+		$this->database->update($this->spa_table, $spa_arr, ['SALON_ID' => $pk]);
 	}
 
 	public function InsertSpa($spa_arr)
@@ -54,7 +54,7 @@ class SPA_MODEL
 
 	public function DeleteSpa($pk)
 	{
-		$this->database->delete($this->spa_table, ['SPA_ID' => $pk]);
+		$this->database->delete($this->spa_table, ['SALON_ID' => $pk]);
 	}
 
 
@@ -80,17 +80,17 @@ class SPA_MODEL
 	public function FetchSpaList()
 	{
 		$data = $this->database->select($this->spa_table, [
-			'SPA_ID',
-			'SPA_NAME',
-			'SPA_TEL',
-			'SPA_LOCATION',
-			'SPA_EMAIL',
-			'SPA_WEBSITE',
-			'SPA_MAP_COORD',
-			'SPA_IMAGE',
+			'SALON_ID',
+			'SALON_NAME',
+			'SALON_TEL',
+			'SALON_LOCATION',
+			'SALON_EMAIL',
+			'SALON_WEBSITE',
+			'SALON_MAP_COORD',
+			'SALON_IMAGE',
 
 		], [
-			"ORDER" => ["SPA_ID" => "ASC"],
+			"ORDER" => ["SALON_ID" => "ASC"],
 		]);
 		return $data;
 	}
@@ -105,16 +105,17 @@ class SPA_MODEL
 	public function IsValidPassword($plain_pass, $email_address)
 	{
 		//query the database
+		$matched = false;
 		$data = $this->database->select('user', 'PASSWORD', [
 			'EMAIL' => $email_address,
 			'ACCOUNT_TYPE' => 1, //1 for admin account type
 			'ACCOUNT_STATUS' => 1 //1 indicates active account
 		]);
+		if (is_array($data)) {
+			$stored_hash = $data[0];
 
-		$stored_hash = $data[0];
-
-		$matched = $this->vanillaPassword->verify($plain_pass, $stored_hash);
-
+			$matched = $this->vanillaPassword->verify($plain_pass, $stored_hash);
+		}
 		return $matched;
 	}
 

@@ -1,6 +1,6 @@
 $(function () {
-    var $spa_id = $('#spa_id').val();
-    var $url = 'modules/services.php?spa_id=' + $spa_id;
+    var $salon_id = $('#salon_id').val();
+    var $url = 'modules/services.php?salon_id=' + $salon_id;
     var db = {
         loadData: function (filter) {
             return $.ajax({
@@ -39,16 +39,16 @@ $(function () {
         autoload: true,
         paging: true,
         deleteConfirm: function (item) {
-            return "The Entry for \"" + item.SPA_NAME + "\" will be removed. Are you sure?";
+            return "The Entry for \"" + item.SALON_NAME + "\" will be removed. Are you sure?";
         },
         rowClick: function (args) {
             showDetailsDialog("Edit", args.item);
         },
         controller: db,
         fields: [
-            {name: "SPA_ID", type: "text", visible: false},
+            {name: "SALON_ID", type: "text", visible: false},
             {name: "SERVICE_ID", type: "text", visible: false},
-            {name: "SPA_NAME", title: "Salon/Spa Name", type: "text"},
+            {name: "SALON_NAME", title: "Salon/Spa Name", type: "text"},
             {name: "SERVICE_NAME", title: "Service", type: "text"},
             {name: "SERVICE_COST", title: "Cost", type: "number"},
             {
@@ -74,7 +74,7 @@ $(function () {
         modal: true,
         open: function (event, ui) {
             $('#detailsDialog').css('overflow', 'hidden'); //this line does the actual hiding
-            $("#SPA_ID").val($spa_id);
+            $("#SALON_ID").val($salon_id);
         },
         close: function () {
             $("#detailsForm").validate().resetForm();
@@ -95,8 +95,8 @@ $(function () {
     var formSubmitHandler = $.noop;
 
     var showDetailsDialog = function (dialogType, client) {
-        $("#SPA_ID").val(client.SPA_ID);
-        $("#SPA_NAME").val(client.SPA_NAME);
+        $("#SALON_ID").val(client.SALON_ID);
+        $("#SALON_NAME").val(client.SALON_NAME);
         $("#SERVICE_NAME").val(client.SERVICE_NAME);
         $("#SERVICE_COST").val(client.SERVICE_COST);
 
@@ -115,7 +115,7 @@ $(function () {
     var saveClient = function (client, isNew) {
 
         $.extend(client, {
-            SPA_ID: $("#SPA_ID").val(),
+            SALON_ID: $("#SALON_ID").val(),
             SERVICE_NAME: $("#SERVICE_NAME").val(),
             SERVICE_COST: $("#SERVICE_COST").val(),
         })

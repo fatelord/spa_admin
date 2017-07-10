@@ -6,7 +6,7 @@ $_SESSION['_csrf'] = $token;
 //check if user is logged in
 $logged = isset($_SESSION['logged']) ? $_SESSION['logged'] : false;
 $name = isset($_SESSION['username']) ? $_SESSION['username'] : false;
-$spa_id = isset($_GET['spa_id']) ? $_GET['spa_id'] : 0;
+$spa_id = isset($_GET['id']) ? $_GET['id'] : 0;
 $application_name = 'Services - User Admin';
 if (!$logged) {
 	header("Location: index.php");
@@ -55,7 +55,7 @@ if (!$logged) {
 <div class="col-md-12">
     <div class="panel panel-default">
         <div class="panel-body">
-            <input type="hidden" name="spa_id" id="spa_id" value="<?= $spa_id; ?>"/>
+            <input type="text" name="salon_id" id="salon_id" value="<?= $spa_id; ?>"/>
             <div id="jsGrid"><?= $application_name ?></div>
         </div>
     </div>
@@ -66,8 +66,8 @@ if (!$logged) {
         <div class="row">
             <div class="col-md-12">
                 <label for="name">Salon/Spa Name:</label>
-                <input id="SPA_NAME" name="SPA_NAME" type="text" readonly="readonly" class="form-control"/>
-                <input id="SPA_ID" name="SPA_ID" type="hidden" class="form-control"/>
+                <input id="SALON_NAME" name="SALON_NAME" type="text" readonly="readonly" class="form-control"/>
+                <input id="SALON_ID" name="SALON_ID" type="hidden" class="form-control"/>
             </div>
         </div>
         <div class="row">
