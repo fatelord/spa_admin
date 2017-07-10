@@ -1,6 +1,7 @@
 $(function () {
     var $salon_id = $('#salon_id').val();
     var $url = 'modules/services.php?salon_id=' + $salon_id;
+    var $delete_url = 'modules/services_delete.php';
     var db = {
         loadData: function (filter) {
             return $.ajax({
@@ -18,15 +19,15 @@ $(function () {
         },
         updateItem: function (item) {
             return $.ajax({
-                type: "PUT",
+                type: "POST",
                 url: $url,
                 data: item
             });
         },
         deleteItem: function (item) {
             return $.ajax({
-                type: "DELETE",
-                url: $url,
+                type: "POST",
+                url: $delete_url,
                 data: item
             });
         }

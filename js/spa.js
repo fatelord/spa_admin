@@ -1,5 +1,6 @@
 $(function () {
     var $url = 'modules/spa.php';
+    var $delete_url = 'modules/spa_delete.php';
     var db = {
         loadData: function (filter) {
             return $.ajax({
@@ -17,15 +18,15 @@ $(function () {
         },
         updateItem: function (item) {
             return $.ajax({
-                type: "PUT",
+                type: "POST",
                 url: $url,
                 data: item
             });
         },
         deleteItem: function (item) {
             return $.ajax({
-                type: "DELETE",
-                url: $url,
+                type: "POST",
+                url: $delete_url,
                 data: item
             });
         }
@@ -61,7 +62,7 @@ $(function () {
                 itemTemplate: function (value, item) {
                     var $result = jsGrid.fields.control.prototype.itemTemplate.apply(this, arguments);
 
-                    var $customButton = '<a class="btn btn-link" href="spa_services.php?id='+item.SALON_ID+'">Services</a>';
+                    var $customButton = '<a class="btn btn-link" href="spa_services.php?id=' + item.SALON_ID + '">Services</a>';
 
                     return $result.add($customButton);
                 }
@@ -138,8 +139,7 @@ $(function () {
     };
 
     var saveClient = function (client, isNew) {
-
-        $.extend(client, {
+        var data = {
             SALON_NAME: $("#SALON_NAME").val(),
             SALON_EMAIL: $("#SALON_EMAIL").val(),
             SALON_LOCATION: $("#SALON_LOCATION").val(),
@@ -147,8 +147,8 @@ $(function () {
             SALON_WEBSITE: $("#SALON_WEBSITE").val(),
             SALON_IMAGE: $("#SALON_IMAGE").val(),
             SALON_MAP_COORD: $("#SALON_MAP_COORD").val()
-        })
-        ;
+        };
+        $.extend(client, data);
 
         $("#jsGrid").jsGrid(isNew ? "insertItem" : "updateItem", client);
 
