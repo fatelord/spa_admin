@@ -72,7 +72,9 @@ $(function () {
                 editButton: false,
                 deleteButton: false,
                 itemTemplate: function (value, item) {
-                    return $("<button>").attr("type", "button").attr("class","btn btn-warning btn-xs").text("Edit")
+                    return $("<button>")
+                        .attr("type", "button")
+                        .attr("class","btn btn-warning btn-xs").text("Edit")
                         .on("click", function () {
                             showDetailsDialog("Edit", item);
                         });
