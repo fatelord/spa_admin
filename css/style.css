@@ -80,3 +80,8 @@ input[readonly].form-control {
     background-color: transparent;
     font-size: 1em;
 }
+
+.error {
+    color: #cc2337;
+    font-weight: bold;
+}

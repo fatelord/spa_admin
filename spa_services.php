@@ -6,7 +6,8 @@ $_SESSION['_csrf'] = $token;
 //check if user is logged in
 $logged = isset($_SESSION['logged']) ? $_SESSION['logged'] : false;
 $name = isset($_SESSION['username']) ? $_SESSION['username'] : false;
-$application_name = 'SALON/SPA - User Admin';
+$spa_id = isset($_GET['spa_id']) ? $_GET['spa_id'] : 0;
+$application_name = 'Services - User Admin';
 if (!$logged) {
 	header("Location: index.php");
 	exit();
@@ -48,10 +49,13 @@ if (!$logged) {
         </div>
     </div>
 </div>
+<div class="col-md-12" style="margin:0 0 10px 0">
+    <a href="manage_spa.php" class="btn btn-primary btn-sm"><< Back to Spa</a>
+</div>
 <div class="col-md-12">
     <div class="panel panel-default">
         <div class="panel-body">
-            <input type="hidden" name="_csrf" id="_csrf" value="<?= $token; ?>"/>
+            <input type="hidden" name="spa_id" id="spa_id" value="<?= $spa_id; ?>"/>
             <div id="jsGrid"><?= $application_name ?></div>
         </div>
     </div>
@@ -62,41 +66,20 @@ if (!$logged) {
         <div class="row">
             <div class="col-md-12">
                 <label for="name">Salon/Spa Name:</label>
-                <input id="SPA_NAME" name="SPA_NAME" type="text" class="form-control"/>
+                <input id="SPA_NAME" name="SPA_NAME" type="text" readonly="readonly" class="form-control"/>
+                <input id="SPA_ID" name="SPA_ID" type="hidden" class="form-control"/>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <label for="name">Telephone Number:</label>
-                <input id="SPA_TEL" name="SPA_TEL" type="text" class="form-control"/>
+                <label for="name">Service:</label>
+                <input id="SERVICE_NAME" name="SERVICE_NAME" type="text" class="form-control"/>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <label for="name">Location</label>
-                <input id="SPA_LOCATION" name="SPA_LOCATION" type="text" class="form-control"/>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <label for="name">Email</label>
-                <input id="SPA_EMAIL" name="SPA_EMAIL" type="text" class="form-control"/>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <label for="name">Website</label>
-                <input id="SPA_WEBSITE" name="SPA_WEBSITE" type="text" class="form-control"/>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <label for="name">Map</label>
-                <input id="SPA_MAP_COORD" name="SPA_MAP_COORD" type="text" class="form-control"/>
-            </div>
-            <div class="col-md-6">
-                <label for="name">Image</label>
-                <input id="SPA_IMAGE" name="SPA_IMAGE" type="text" class="form-control"/>
+                <label for="name">Cost</label>
+                <input id="SERVICE_COST" name="SERVICE_COST" type="text" class="form-control"/>
             </div>
         </div>
         <div class="row" style="margin-top: 25px;">
@@ -119,6 +102,6 @@ if (!$logged) {
 
 <script src=vendor/bower-asset/pace/pace.min.js></script>
 <script src=js/waiting_modal.js></script>
-<script src=js/spa.js></script>
+<script src=js/spa_services.js></script>
 </body>
 </html>
