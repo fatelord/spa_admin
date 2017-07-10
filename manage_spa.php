@@ -6,7 +6,7 @@ $_SESSION['_csrf'] = $token;
 //check if user is logged in
 $logged = isset($_SESSION['logged']) ? $_SESSION['logged'] : false;
 $name = isset($_SESSION['username']) ? $_SESSION['username'] : false;
-$application_name = 'SALON/SPA - User Admin';
+$application_name = 'Salon/Spa - User Admin';
 if (!$logged) {
 	header("Location: index.php");
 	exit();
@@ -17,6 +17,7 @@ if (!$logged) {
 <html lang="en">
 <head>
     <title><?= $application_name ?></title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicons/favicon.ico"/>
     <!-- Force latest IE rendering engine or ChromeFrame if installed -->
     <!--[if IE]>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->

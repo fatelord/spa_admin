@@ -15,10 +15,9 @@ if ($logged) {
 <!DOCTYPE html>
 <html>
 <title><?=$application_name?></title>
-<!--
-<link rel="shortcut icon" type="image/x-icon" href="favicons/logo_Ge2_3.ico"/>
-<link rel="shortcut icon" type="image/x-icon" href="favicons/logo_Ge2_3.ico"/>
--->
+
+<link rel="shortcut icon" type="image/x-icon" href="favicons/favicon.ico"/>
+
 <!-- Force latest IE rendering engine or ChromeFrame if installed -->
 <!--[if IE]>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
@@ -30,7 +29,7 @@ if ($logged) {
 <link rel="stylesheet" href="vendor/bower-asset/pace/themes/green/pace-theme-flat-top.css">
 <body>
 <div class="container text-center">
-    <div class="col-md-12"><img src="Icons/logo.png" alt="<?=$application_name?>" width="120"></div>
+    <div class="col-md-12"><img src="icons/logo.png" alt="<?=$application_name?>" width="250"></div>
     <div class="col-md-12"><h1><?=$application_name?></h1></div>
     <div class="col-md-12">
         <h4>You need to login in order to proceed</h4>
