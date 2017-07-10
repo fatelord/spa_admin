@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+body {
+    padding-top: 60px;
+    font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.form-control {
+    border: 1px solid #D6D6D6;
+    border-radius: 0;
+    box-shadow: none;
+    height: 50px;
+    padding: 6px 15px;
+}
+
+.custom-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: .5rem;
+}
+
+.btn-orange {
+    background-color: transparent; /*#FF5900*/;
+    color: #ff7013;
+    border-radius: 0.5rem;
+    border: 1px solid #050505;
+    font-weight: 900;
+}
+
+.btn-orange:hover {
+    background-color: #FF5900;
+    color: #000000;
+}
+
+.text-input {
+    border-radius: 0.5rem;
+    border: 1px solid #050505;
+    font-weight: 900;
+}
+
+.active-row > td {
+    font-weight: bold;
+    color: #ffffff;
+    background: #ff7013 !important;
+    border-color: #000000;
+}
+
+.message-prev {
+    border: 1px solid #ff7013;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.form-control.text-orange {
+    font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #ff7013;
+    font-weight: 600;
+}
+
+input[readonly].form-control {
+    background-color: transparent;
+    font-size: 1em;
+}
