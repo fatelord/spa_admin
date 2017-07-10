@@ -42,7 +42,7 @@ $(function () {
             return "The Entry for \"" + item.SALON_NAME + "\" will be removed. Are you sure?";
         },
         rowClick: function (args) {
-            showDetailsDialog("Edit", args.item);
+            //showDetailsDialog("Edit", args.item);
         },
         controller: db,
         fields: [
@@ -69,9 +69,21 @@ $(function () {
                     return this.insertControl[0].files[0];
                 },
                 align: "center",
-                width:120
+                width: 120
             },
             {name: "SALON_MAP_COORD", title: "Map", type: "text", visible: false},
+            {
+                type: "control",
+                modeSwitchButton: false,
+                editButton: false,
+                deleteButton: false,
+                itemTemplate: function (value, item) {
+                    return $("<button>").attr("type", "button").text("Edit")
+                        .on("click", function () {
+                            showDetailsDialog("Edit", item);
+                        });
+                }
+            },
             {
                 type: "control",
                 modeSwitchButton: false,
@@ -79,9 +91,7 @@ $(function () {
                 editButton: false,
                 itemTemplate: function (value, item) {
                     var $result = jsGrid.fields.control.prototype.itemTemplate.apply(this, arguments);
-
-                    var $customButton = '<a class="btn btn-link" href="spa_services.php?id=' + item.SALON_ID + '">Services</a>';
-
+                    var $customButton = '<a class="btn btn-success btn-xs" href="spa_services.php?id=' + item.SALON_ID + '">Services</a>';
                     return $result.add($customButton);
                 }
             },
@@ -159,7 +169,7 @@ $(function () {
         };
 
 
-        $("#detailsDialog").dialog("option", "title", dialogType + " Client")
+        $("#detailsDialog").dialog("option", "title", dialogType + " Salon/Spa")
             .dialog("open");
         //$("#detailsDialog").modal("show");
 
