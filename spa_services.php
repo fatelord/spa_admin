@@ -19,7 +19,9 @@ if (!$logged) {
 <html lang="en">
 <head>
     <title><?= $application_name ?></title>
-    <link rel="shortcut icon" type="image/x-icon" href="favicons/favicon.ico"/>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicons/favicon.ico" type="image/x-icon">
+
     <!-- Force latest IE rendering engine or ChromeFrame if installed -->
     <!--[if IE]>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
