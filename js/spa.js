@@ -55,6 +55,7 @@ $(function () {
             //{name: "SALON_IMAGE", title: "Image", type: "text"},
             {
                 name: "SALON_IMAGE",
+                title: "Img",
                 itemTemplate: function (val, item) {
                     return $("<img>").attr("src", val).css({height: 50, width: 50}).on("click", function () {
                         $("#imagePreview").attr("src", item.SALON_IMAGE);
