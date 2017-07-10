@@ -47,12 +47,6 @@ $(function () {
         controller: db,
         fields: [
             {name: "SALON_ID", type: "text", visible: false},
-            {name: "SALON_NAME", title: "Name", type: "text"},
-            {name: "SALON_TEL", title: "Telephone", type: "text"},
-            {name: "SALON_EMAIL", title: "Email", type: "text"},
-            {name: "SALON_WEBSITE", title: "Website", type: "text"},
-            {name: "SALON_LOCATION", title: "Location", type: "text"},
-            //{name: "SALON_IMAGE", title: "Image", type: "text"},
             {
                 name: "SALON_IMAGE",
                 title: "Img",
@@ -72,6 +66,12 @@ $(function () {
                 align: "center",
                 width: 120
             },
+            {name: "SALON_NAME", title: "Name", type: "text"},
+            {name: "SALON_TEL", title: "Telephone", type: "text"},
+            {name: "SALON_EMAIL", title: "Email", type: "text"},
+            {name: "SALON_WEBSITE", title: "Website", type: "text"},
+            {name: "SALON_LOCATION", title: "Location", type: "text"},
+            //{name: "SALON_IMAGE", title: "Image", type: "text"},
             {name: "SALON_MAP_COORD", title: "Map", type: "text", visible: false},
             {
                 type: "control",
