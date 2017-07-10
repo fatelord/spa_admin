@@ -108,6 +108,13 @@ if (!$logged) {
     </form>
 </div>
 <!-- end of modal -->
+
+<!-- Imaage preview -->
+<div id="dialog" title="Image Full Size View">
+    <img id="imagePreview" />
+</div>
+<!-- end image preview -->
+
 <script src="vendor/bower-asset/jquery/dist/jquery.js"></script>
 <script src="vendor/bower-asset/jquery-ui/jquery-ui.js"></script>
 

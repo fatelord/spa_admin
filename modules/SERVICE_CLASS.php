@@ -1,9 +1,9 @@
 <?php
 namespace app\modules;
+
+require_once 'SERVICES_MODEL.php';
 class SERVICE_CLASS
 {
-
-
 	/**
 	 * @param $spa_id
 	 * @return array|bool

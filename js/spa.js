@@ -52,7 +52,25 @@ $(function () {
             {name: "SALON_EMAIL", title: "Email", type: "text"},
             {name: "SALON_WEBSITE", title: "Website", type: "text"},
             {name: "SALON_LOCATION", title: "Location", type: "text"},
-            {name: "SALON_IMAGE", title: "Image", type: "text"},
+            //{name: "SALON_IMAGE", title: "Image", type: "text"},
+            {
+                name: "SALON_IMAGE",
+                itemTemplate: function (val, item) {
+                    return $("<img>").attr("src", val).css({height: 50, width: 50}).on("click", function () {
+                        $("#imagePreview").attr("src", item.SALON_IMAGE);
+                        $("#dialog").dialog("open");
+                    });
+                },
+                insertTemplate: function () {
+                    var insertControl = this.insertControl = $("<input>").prop("type", "file");
+                    return insertControl;
+                },
+                insertValue: function () {
+                    return this.insertControl[0].files[0];
+                },
+                align: "center",
+                width:120
+            },
             {name: "SALON_MAP_COORD", title: "Map", type: "text", visible: false},
             {
                 type: "control",
@@ -79,6 +97,15 @@ $(function () {
                 }
             }
         ]
+    });
+
+    $("#dialog").dialog({
+        modal: true,
+        autoOpen: false,
+        height: 'auto',
+        open: function (event, ui) {
+            $('#dialog').css('overflow', 'hidden'); //this line does the actual hiding
+        },
     });
 
     $("#detailsDialog").dialog({

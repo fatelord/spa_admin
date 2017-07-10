@@ -21,7 +21,7 @@ class SERVICES_MODEL
 {
 	public $database;
 	public $spa_services_table = 'services';
-	public $spa_services_view = 'SALON_SERVICE';
+	public $spa_services_view = 'salon_service';
 	public $date;
 
 	function __construct($debug = false)
@@ -61,6 +61,7 @@ class SERVICES_MODEL
 
 	public function FetchServiceList($salon_id)
 	{
+		//$this->database->debug();
 		$data = $this->database->select($this->spa_services_view, [
 			'SERVICE_ID',
 			'SALON_ID',
@@ -72,6 +73,7 @@ class SERVICES_MODEL
 		], [
 			"ORDER" => ["SERVICE_ID" => "ASC"],
 		]);
+		
 		return $data;
 	}
 
