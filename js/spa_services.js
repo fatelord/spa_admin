@@ -2,6 +2,8 @@ $(function () {
     var $salon_id = $('#salon_id').val();
     var $url = 'modules/services.php?salon_id=' + $salon_id;
     var $delete_url = 'modules/services_delete.php';
+
+
     var db = {
         loadData: function (filter) {
             return $.ajax({
@@ -76,6 +78,7 @@ $(function () {
         open: function (event, ui) {
             $('#detailsDialog').css('overflow', 'hidden'); //this line does the actual hiding
             $("#SALON_ID").val($salon_id);
+            getSalonName($salon_id);
         },
         close: function () {
             $("#detailsForm").validate().resetForm();
@@ -127,4 +130,10 @@ $(function () {
         $("#detailsDialog").dialog("close");
         // $("#detailsDialog").modal("hide");
     };
+
+    function getSalonName(salon_id) {
+        $.getJSON("modules/single_salon.php", {salon_id: $salon_id}, function (data) {
+            $('#SALON_NAME').val(data.SALON_NAME);
+        });
+    }
 });

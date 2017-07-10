@@ -98,6 +98,16 @@ class SALON_MODEL
 		return $data;
 	}
 
+	public function FetchSalonName($salon_id)
+	{
+		$data = $this->database->select($this->spa_table, [
+			'SALON_NAME',
+		], [
+			'SALON_ID' => $salon_id
+		]);
+		return $data;
+	}
+
 	public function HashPassword($plain_pass)
 	{
 		$hashed = $this->vanillaPassword->hash($plain_pass);

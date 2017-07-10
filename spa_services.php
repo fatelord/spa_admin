@@ -6,6 +6,7 @@ $_SESSION['_csrf'] = $token;
 //check if user is logged in
 $logged = isset($_SESSION['logged']) ? $_SESSION['logged'] : false;
 $name = isset($_SESSION['username']) ? $_SESSION['username'] : false;
+$salon_name = isset($_SESSION['salon']) ? $_SESSION['salon'] : false;
 $spa_id = isset($_GET['id']) ? $_GET['id'] : 0;
 $application_name = 'Services - User Admin';
 if (!$logged) {
