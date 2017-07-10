@@ -91,11 +91,13 @@ class SPA_MODEL
             'SPA_NAME',
             'SPA_TEL',
             'SPA_LOCATION',
+            'SPA_EMAIL',
             'SPA_WEBSITE',
             'SPA_MAP_COORD',
+            'SPA_IMAGE',
 
         ], [
-            "ORDER" => ["SPA_NAME" => "DESC"],
+            "ORDER" => ["SPA_NAME" => "ASC"],
         ]);
         return $data;
     }

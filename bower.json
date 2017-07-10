@@ -24,6 +24,8 @@
     "bootstrap": "^3.3.7",
     "jquery-validation": "^1.16.0",
     "jsgrid": "js-grid#^1.5.3",
-    "pace": "pace#^1.0.2"
+    "pace": "pace#^1.0.2",
+    "jquery.dialog": "^0.2.0",
+    "jquery-ui": "^1.12.1"
   }
 }
