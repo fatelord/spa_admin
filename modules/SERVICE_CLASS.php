@@ -1,6 +1,8 @@
 <?php
 namespace app\modules;
 
+use app\modules\SERVICES_MODEL;
+
 require_once 'SERVICES_MODEL.php';
 class SERVICE_CLASS
 {
@@ -10,7 +12,7 @@ class SERVICE_CLASS
 	 */
 	public static function GET_SERVICES_LIST($spa_id)
 	{
-		$model = new \app\modules\SERVICES_MODEL();
+		$model = new SERVICES_MODEL();
 		$data = $model->FetchServiceList($spa_id);
 		return $data;//json_encode($data);
 	}
@@ -20,7 +22,7 @@ class SERVICE_CLASS
 	 */
 	public static function INSERT_SERVICE($service_arr)
 	{
-		$model = new \app\modules\SERVICES_MODEL();
+		$model = new SERVICES_MODEL();
 		$model->InsertService($service_arr);
 	}
 
@@ -30,7 +32,7 @@ class SERVICE_CLASS
 	 */
 	public static function UPDATE_SERVICE($pk, $service_arr)
 	{
-		$model = new \app\modules\SERVICES_MODEL();
+		$model = new SERVICES_MODEL();
 		$model->UpdateService($pk, $service_arr);
 	}
 
@@ -39,7 +41,7 @@ class SERVICE_CLASS
 	 */
 	public static function DELETE_SPA($pk)
 	{
-		$model = new \app\modules\SERVICES_MODEL();
+		$model = new SERVICES_MODEL();
 		$model->DeleteService($pk);
 	}
 }

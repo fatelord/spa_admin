@@ -126,7 +126,7 @@ $(function () {
         ;
 
         $("#jsGrid").jsGrid(isNew ? "insertItem" : "updateItem", client);
-
+        $("#jsgrid").jsGrid("refresh");
         $("#detailsDialog").dialog("close");
         // $("#detailsDialog").modal("hide");
     };

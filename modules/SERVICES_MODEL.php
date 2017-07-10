@@ -21,6 +21,7 @@ class SERVICES_MODEL
 {
 	public $database;
 	public $spa_services_table = 'services';
+	public $spa_table = 'salon';
 	public $spa_services_view = 'salon_service';
 	public $date;
 
@@ -62,7 +63,7 @@ class SERVICES_MODEL
 	public function FetchServiceList($salon_id)
 	{
 		//$this->database->debug();
-		$data = $this->database->select($this->spa_services_view, [
+		/*$data = $this->database->select($this->spa_services_table, [
 			'SERVICE_ID',
 			'SALON_ID',
 			'SALON_NAME',
@@ -72,8 +73,20 @@ class SERVICES_MODEL
 			'SALON_ID' => $salon_id
 		], [
 			"ORDER" => ["SERVICE_ID" => "ASC"],
+		]);*/
+		$data = $this->database->select($this->spa_services_table, [
+			"[>]salon" => ["SALON_ID" => "SALON_ID"],
+
+		], [
+			$this->spa_table . '.SALON_NAME',
+			$this->spa_services_table . '.SERVICE_ID[Number]',
+			$this->spa_services_table . '.SALON_ID[Number]',
+			$this->spa_services_table . '.SERVICE_NAME',
+			$this->spa_services_table . '.SERVICE_COST[Number]'
+		], [
+			$this->spa_services_table . '.SALON_ID' => $salon_id
 		]);
-		
+
 		return $data;
 	}
 
