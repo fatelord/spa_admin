@@ -74,7 +74,8 @@ $(function () {
                 itemTemplate: function (value, item) {
                     return $("<button>")
                         .attr("type", "button")
-                        .attr("class","btn btn-warning btn-xs").text("Edit")
+                        .attr("class","btn btn-warning btn-xs btn-block")
+                        .text("Edit")
                         .on("click", function () {
                             showDetailsDialog("Edit", item);
                         });
@@ -87,7 +88,7 @@ $(function () {
                 editButton: false,
                 itemTemplate: function (value, item) {
                     var $result = jsGrid.fields.control.prototype.itemTemplate.apply(this, arguments);
-                    var $customButton = '<a class="btn btn-success btn-xs" href="spa_services.php?id=' + item.SALON_ID + '">Services</a>';
+                    var $customButton = '<a class="btn btn-success btn-xs btn-block" href="spa_services.php?id=' + item.SALON_ID + '">Services</a>';
                     return $result.add($customButton);
                 }
             },
