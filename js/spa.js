@@ -49,22 +49,15 @@ $(function () {
             {name: "SALON_ID", type: "text", visible: false},
             {
                 name: "SALON_IMAGE",
-                title: "Img",
+                title: "Image",
                 itemTemplate: function (val, item) {
                     return $("<img>").attr("src", val).css({height: 50, width: 50}).on("click", function () {
                         $("#imagePreview").attr("src", item.SALON_IMAGE);
                         $("#dialog").dialog("open");
                     });
                 },
-                insertTemplate: function () {
-                    var insertControl = this.insertControl = $("<input>").prop("type", "file");
-                    return insertControl;
-                },
-                insertValue: function () {
-                    return this.insertControl[0].files[0];
-                },
                 align: "center",
-                width: 120
+                //width: 120
             },
             {name: "SALON_NAME", title: "Name", type: "text"},
             {name: "SALON_TEL", title: "Telephone", type: "text"},
