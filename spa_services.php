@@ -50,12 +50,12 @@ if (!$logged) {
     </div>
 </div>
 <div class="col-md-12" style="margin:0 0 10px 0">
-    <a href="manage_spa.php" class="btn btn-primary btn-sm"><< Back to Spa</a>
+    <a href="manage_spa.php" class="btn btn-primary btn-sm"><< Back to Salon/Spa List</a>
 </div>
 <div class="col-md-12">
     <div class="panel panel-default">
         <div class="panel-body">
-            <input type="text" name="salon_id" id="salon_id" value="<?= $spa_id; ?>"/>
+            <input type="hidden" name="salon_id" id="salon_id" value="<?= $spa_id; ?>"/>
             <div id="jsGrid"><?= $application_name ?></div>
         </div>
     </div>
