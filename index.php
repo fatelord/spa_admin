@@ -6,7 +6,7 @@ $_SESSION['_csrf'] = $token;
 //check if user is logged in
 $logged = isset($_SESSION['logged']) ? $_SESSION['logged'] : false;
 $login_message = isset($_SESSION['message']) ? $_SESSION['message'] : '';
-$application_name = 'SPA - User Admin';
+$application_name = 'Salon/Spa-Admin Dashboard';
 if ($logged) {
     header("Location: manage_spa.php");
     exit();
