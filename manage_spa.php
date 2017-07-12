@@ -1,8 +1,7 @@
 <?php
 session_start();
-$token = md5(uniqid('mail_'));
+$token = md5(uniqid('spa_'));
 $_SESSION['_csrf'] = $token;
-
 //check if user is logged in
 $logged = isset($_SESSION['logged']) ? $_SESSION['logged'] : false;
 $name = isset($_SESSION['username']) ? $_SESSION['username'] : false;
